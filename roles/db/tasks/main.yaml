@@ -1,0 +1,12 @@
+# installs all necessary DB software. DynamoDB
+- name: Move DynamoDB zip from host, and unzip
+  become: yes
+  unarchive:
+    src: dynamodb_local_latest.tar.gz
+    dest: /var/lib
+
+- name: Install JRE
+  become: yes
+  apt:
+    name: default-jre
+    state: present
